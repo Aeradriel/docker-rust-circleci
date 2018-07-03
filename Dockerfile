@@ -25,6 +25,8 @@ RUN rustup update && \
   rustup install nightly && \
   rustup default nightly
 
+RUN rustup component add rustfmt-preview --toolchain nightly
+
 RUN bash -l -c 'echo $(rustc --print sysroot)/lib >> /etc/ld.so.conf'
 RUN bash -l -c 'echo /usr/local/lib >> /etc/ld.so.conf'
 RUN ldconfig
